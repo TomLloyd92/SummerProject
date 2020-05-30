@@ -1,30 +1,23 @@
 #include "Game.h"
 #include <SFML\Graphics.hpp>
 #include <iostream>
+#include "Gameplay.h"
+#include "Globals.h"
 
+GameMode Game::m_currentMode{ GameMode::Gameplay };
 
-
-//GameMode Game::m_currentMode{ GameMode::Splash };
-
-
-
-
-Game::Game() :
-	m_window{ sf::VideoMode{ 1000, 1000, 32 }, "Toms Summer Project" },
-	m_exitGame{ false }
+Game::Game() : m_window{ sf::VideoMode{ 1000, 1000, 32 }, "Toms Summer Project" }, m_exitGame{ false }
 {
 	setupAssets();
-
 }
-
 
 Game::~Game()
 {
 }
 
-
 void Game::run()
 {
+	
 	sf::Clock clock;
 	sf::Time timeSinceLastUpdate = sf::Time::Zero;
 	sf::Time timePerFrame = sf::seconds(1.f / 60.f);
@@ -40,6 +33,9 @@ void Game::run()
 		}
 		render();
 	}
+	
+
+
 }
 
 void Game::processEvents()
@@ -53,47 +49,51 @@ void Game::processEvents()
 		}
 		if (sf::Event::KeyPressed == event.type)
 		{
-			/*
-			if ((sf::Keyboard::Escape == event.key.code) && (Game::m_currentMode == GameMode::GamePlay))
+			
+			if ((sf::Keyboard::Escape == event.key.code) && (Game::m_currentMode == GameMode::Gameplay))
 			{
-				Game::m_currentMode = GameMode::Map;
+				//Pause
 			}
-			*/
+			
 		}
 	}
-}
 
+
+}
 
 void Game::update(sf::Time t_deltaTime)
 {
-	/*
 	switch (m_currentMode)
 	{
-	case GameMode::Splash:
-		m_splashScreen.update(t_deltaTime);
+	case GameMode::Gameplay:
+		m_gameplayScreen.update(t_deltaTime);
 	default:
 		break;
 	}
+
 	if (m_exitGame)
 	{
 		m_window.close();
 	}
-	*/
 }
-
 
 void Game::render()
 {
-	/*
+	m_window.clear(sf::Color(0, 0, 0, 0));
+	
+
 	switch (m_currentMode)
 	{
-	case GameMode::Splash:
-		m_splashScreen.render(m_window);
+	case GameMode::Gameplay:
+		m_gameplayScreen.render(m_window);
 		break;
 	default:
 		break;
 	}
-	*/
+
+
+	m_window.display();
+
 
 }
 
@@ -103,5 +103,7 @@ void Game::setupAssets()
 	{
 		std::cout << "problem loading arial black font" << std::endl;
 	}
+
+	m_gameplayScreen.setup( m_ArialBlackfont);
 }
 
