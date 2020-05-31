@@ -29,6 +29,7 @@ private:
 	GamePlay m_gameplayScreen;
 	bool m_exitGame;
 
+
 };
 
 #endif

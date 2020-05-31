@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML\Graphics.hpp>
 #include <iostream>
-
+#include "Player.h"
 
 class GamePlay
 {
@@ -13,8 +13,10 @@ public:
 	void setup(sf::Font& t_font);
 	void initialise();
 private:
-	sf::Font m_font; // font used by HUD maybe??
+	//Font
+	sf::Font m_font;
 
-	//Test Circle
-	sf::CircleShape m_testCircle;
+	//Objects
+	Player m_player;
+
 };

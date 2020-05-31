@@ -6,7 +6,7 @@
 
 GameMode Game::m_currentMode{ GameMode::Gameplay };
 
-Game::Game() : m_window{ sf::VideoMode{ 1000, 1000, 32 }, "Toms Summer Project" }, m_exitGame{ false }
+Game::Game() : m_window{ sf::VideoMode{ SCREEN_WIDTH, SCREEN_HEIGHT, 32 }, "Toms Summer Project" }, m_exitGame{ false }
 {
 	setupAssets();
 }
@@ -33,9 +33,6 @@ void Game::run()
 		}
 		render();
 	}
-	
-
-
 }
 
 void Game::processEvents()
@@ -49,16 +46,12 @@ void Game::processEvents()
 		}
 		if (sf::Event::KeyPressed == event.type)
 		{
-			
 			if ((sf::Keyboard::Escape == event.key.code) && (Game::m_currentMode == GameMode::Gameplay))
 			{
 				//Pause
 			}
-			
 		}
 	}
-
-
 }
 
 void Game::update(sf::Time t_deltaTime)
@@ -80,7 +73,6 @@ void Game::update(sf::Time t_deltaTime)
 void Game::render()
 {
 	m_window.clear(sf::Color(0, 0, 0, 0));
-	
 
 	switch (m_currentMode)
 	{
@@ -91,10 +83,7 @@ void Game::render()
 		break;
 	}
 
-
 	m_window.display();
-
-
 }
 
 void Game::setupAssets()
