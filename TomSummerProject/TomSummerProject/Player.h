@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Globals.h"
+#include "cmath"
 
 class Player
 {
@@ -15,6 +16,7 @@ public:
 private:
 	//Test Player;
 	sf::CircleShape m_playerShape;
+	const float m_PLAYER_RADIUS = 10;
 
 	//Position
 	sf::Vector2f m_pos;
@@ -30,4 +32,6 @@ private:
 	float m_speed = 0;
 	float m_maxSpeed = 100;
 	float m_minSpeed = 0;
+	float m_rotation = 0;
+	float m_rotationCorrection = 45/2;
 };
