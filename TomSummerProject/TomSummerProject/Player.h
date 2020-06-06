@@ -13,8 +13,21 @@ public:
 	void initialise();
 
 private:
-	//Test Circle
-	sf::CircleShape m_testCircle;
+	//Test Player;
+	sf::CircleShape m_playerShape;
+
+	//Position
 	sf::Vector2f m_pos;
 	sf::Vector2f m_vel;
+
+	//Movement
+	void m_movement();
+	void m_increaseRotation();
+	void m_decreaseRotation();
+	void m_increaseSpeed();
+	void m_decreaseSpeed();
+	void m_movementHandler();
+	float m_speed = 0;
+	float m_maxSpeed = 100;
+	float m_minSpeed = 0;
 };

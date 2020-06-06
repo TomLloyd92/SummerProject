@@ -17,10 +17,9 @@ Game::~Game()
 
 void Game::run()
 {
-	
 	sf::Clock clock;
 	sf::Time timeSinceLastUpdate = sf::Time::Zero;
-	sf::Time timePerFrame = sf::seconds(1.f / 60.f);
+	sf::Time timePerFrame = sf::seconds(1.0f / 60.f);
 	while (m_window.isOpen())
 	{
 		processEvents(); 
@@ -30,8 +29,8 @@ void Game::run()
 			timeSinceLastUpdate -= timePerFrame;
 			processEvents(); 
 			update(timePerFrame); 
+			render();
 		}
-		render();
 	}
 }
 
@@ -60,6 +59,7 @@ void Game::update(sf::Time t_deltaTime)
 	{
 	case GameMode::Gameplay:
 		m_gameplayScreen.update(t_deltaTime);
+		break;
 	default:
 		break;
 	}

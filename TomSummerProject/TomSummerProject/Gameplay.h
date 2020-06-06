@@ -2,6 +2,7 @@
 #include <SFML\Graphics.hpp>
 #include <iostream>
 #include "Player.h"
+#include "Objective.h"
 
 class GamePlay
 {
@@ -18,5 +19,5 @@ private:
 
 	//Objects
 	Player m_player;
-
+	Objective m_objective;
 };
