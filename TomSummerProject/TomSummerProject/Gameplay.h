@@ -3,6 +3,8 @@
 #include <iostream>
 #include "Player.h"
 #include "Objective.h"
+#include "Enemy.h"
+#include <array>
 
 class GamePlay
 {
@@ -20,4 +22,6 @@ private:
 	//Objects
 	Player m_player;
 	Objective m_objective;
+	std::array<Enemy, 2> m_enemys;
+	//Enemy testEnemy;
 };

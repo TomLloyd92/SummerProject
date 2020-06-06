@@ -81,7 +81,7 @@ void Player::m_increaseSpeed()
 {
 	if (m_speed < m_maxSpeed)
 	{
-		m_speed++;
+		m_speed += m_accelerator;
 	}
 }
 
@@ -89,7 +89,7 @@ void Player::m_decreaseSpeed()
 {
 	if (m_speed > m_minSpeed)
 	{
-		m_speed--;
+		m_speed -= m_accelerator;
 	}
 }
 

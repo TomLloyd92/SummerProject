@@ -31,6 +31,7 @@ private:
 	void m_movementHandler();
 	float m_speed = 0;
 	float m_maxSpeed = 100;
+	float m_accelerator = 0.5;
 	float m_minSpeed = 0;
 	float m_rotation = 0;
 	float m_rotationCorrection = 45/2;
