@@ -12,6 +12,9 @@ public:
 	void render(sf::RenderWindow& t_window);
 	void setup(sf::Font& t_font);
 	void initialise();
+	
+	//Gets
+	sf::Vector2f getPos() { return m_pos; };
 
 private:
 	//Test Player;

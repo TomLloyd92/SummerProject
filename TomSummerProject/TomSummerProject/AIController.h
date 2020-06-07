@@ -2,6 +2,8 @@
 #include <SFML/Graphics.hpp>
 
 #include "Globals.h"
+#include "Enemy.h"
+#include "Player.h"
 
 class AIController
 {
@@ -13,5 +15,6 @@ public:
 	void setup(sf::Font& t_font);
 	void initialise();
 
+	void seek(Enemy & t_seeker, Player & t_target);
 private:
 };

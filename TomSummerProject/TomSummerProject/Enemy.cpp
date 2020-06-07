@@ -12,7 +12,7 @@ Enemy::~Enemy()
 void Enemy::update(sf::Time t_deltaTime)
 {
 	m_movement();
-	m_enemyShape.setPosition(m_pos);
+
 }
 
 void Enemy::render(sf::RenderWindow& t_window)
@@ -38,4 +38,6 @@ void Enemy::initialise()
 
 void Enemy::m_movement()
 {
+	m_pos = m_pos + m_steering;
+	m_enemyShape.setPosition(m_pos);
 }
