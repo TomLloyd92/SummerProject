@@ -5,6 +5,7 @@
 #include "Objective.h"
 #include "Enemy.h"
 #include <array>
+#include "AIController.h"
 
 class GamePlay
 {
@@ -23,5 +24,5 @@ private:
 	Player m_player;
 	Objective m_objective;
 	std::array<Enemy, 2> m_enemys;
-	//Enemy testEnemy;
+	AIController AI;
 };
