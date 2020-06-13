@@ -12,7 +12,6 @@ Enemy::~Enemy()
 void Enemy::update(sf::Time t_deltaTime)
 {
 	m_movement();
-
 }
 
 void Enemy::render(sf::RenderWindow& t_window)
@@ -36,9 +35,18 @@ void Enemy::initialise()
 	m_enemyShape.setOrigin(m_ENEMY_RADIUS * 2, m_ENEMY_RADIUS * 2);
 }
 
+void Enemy::increaseSpeed()
+{
+	if (m_speed < m_MAX_SPEED)
+	{
+		m_speed += 0.1;
+	}
+}
+
 void Enemy::m_movement()
 {
 	m_pos = m_pos + m_vel;
 	m_enemyShape.setPosition(m_pos);
 	m_enemyShape.setRotation(m_rotation + m_ROTATION_OFFSET);
+	increaseSpeed();
 }

@@ -37,8 +37,12 @@ void AIController::seek(Enemy & t_seeker, Player & t_target)
 		relevantLocation.y = relevantLocation.y / magnitude;
 	}
 
+
+
 	//Scale to Max Speed
-	relevantLocation = relevantLocation * t_seeker.getMaxSpeed();
+	relevantLocation = relevantLocation * t_seeker.getSpeed();
+
+
 
 	//Subtract velocity from desiered
 	sf::Vector2f steering = relevantLocation + t_seeker.getVel();
