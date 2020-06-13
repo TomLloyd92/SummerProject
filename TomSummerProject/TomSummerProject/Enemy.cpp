@@ -38,6 +38,7 @@ void Enemy::initialise()
 
 void Enemy::m_movement()
 {
-	m_pos = m_pos + m_steering;
+	m_pos = m_pos + m_vel;
 	m_enemyShape.setPosition(m_pos);
+	m_enemyShape.setRotation(m_rotation + m_ROTATION_OFFSET);
 }

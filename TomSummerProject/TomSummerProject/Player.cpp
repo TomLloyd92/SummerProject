@@ -59,7 +59,7 @@ void Player::m_movement()
 
 void Player::m_increaseRotation()
 {
-	m_rotation += 1;
+	m_rotation += 2;
 
 	if (m_rotation == 360.0)
 	{
@@ -69,7 +69,7 @@ void Player::m_increaseRotation()
 
 void Player::m_decreaseRotation()
 {
-	m_rotation -= 1;
+	m_rotation -= 2;
 
 	if (m_rotation == 360.0)
 	{

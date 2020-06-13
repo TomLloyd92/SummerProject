@@ -4,6 +4,7 @@
 #include "Globals.h"
 #include "Enemy.h"
 #include "Player.h"
+#include "cmath"
 
 class AIController
 {
