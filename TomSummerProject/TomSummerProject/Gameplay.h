@@ -25,4 +25,7 @@ private:
 	Objective m_objective;
 	std::array<Enemy, 2> m_enemys;
 	AIController AI;
+
+
+	bool test = true;
 };

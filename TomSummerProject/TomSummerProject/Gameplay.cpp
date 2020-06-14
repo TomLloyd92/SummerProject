@@ -10,13 +10,31 @@ GamePlay::~GamePlay()
 
 void GamePlay::update(sf::Time t_deltaTime)
 {
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Y))
+	{
+		if (test == true)
+		{
+			test = false;
+			std::cout << test << std::endl;
+		}
+		
+		else if (test == false)
+		{
+			test = true;
+			std::cout << test << std::endl;
+		}
+		
+	}
+
+
 	//Update Objects
 	m_player.update(t_deltaTime);
 	m_objective.update(t_deltaTime);
 	for (int i = 0; i < m_enemys.size(); i++)
 	{
 		m_enemys.at(i).update(t_deltaTime);
-		AI.seek(m_enemys.at(i), m_player);
+		AI.seekOrFlee(m_enemys.at(i), m_player, test);
 	}
 }
 
