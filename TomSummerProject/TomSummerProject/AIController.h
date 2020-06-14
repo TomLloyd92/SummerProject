@@ -16,6 +16,6 @@ public:
 	void setup(sf::Font& t_font);
 	void initialise();
 
-	void seek(Enemy & t_seeker, Player & t_target);
+	void seekOrFlee(Enemy & t_seeker, Player & t_target, bool t_seek);
 private:
 };

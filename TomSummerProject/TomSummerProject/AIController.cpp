@@ -24,11 +24,20 @@ void AIController::initialise()
 {
 }
 
-void AIController::seek(Enemy & t_seeker, Player & t_target)
+void AIController::seekOrFlee(Enemy & t_seeker, Player & t_target, bool t_seek)
 {
-	//Vector Relative to target from seeker
-	sf::Vector2f relevantLocation = t_target.getPos() - t_seeker.getPos();
+	sf::Vector2f relevantLocation;
+	if (t_seek == true)
+	{
+		//Vector Relative to target from seeker
+		 relevantLocation = t_target.getPos() - t_seeker.getPos();
+	}
+	else if(t_seek == false)
+	{
+		//FLEE
+		relevantLocation =  t_seeker.getPos() - t_target.getPos();
 
+	}
 	//Unit vector
 	float magnitude = std::sqrt(relevantLocation.x * relevantLocation.x + relevantLocation.y * relevantLocation.y);
 	if (magnitude != 0)
