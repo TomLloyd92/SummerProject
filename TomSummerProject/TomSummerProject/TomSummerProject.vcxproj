@@ -26,6 +26,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MyVector2D.cpp" />
     <ClCompile Include="Objective.cpp" />
+    <ClCompile Include="PathPoint.cpp" />
     <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -36,6 +37,7 @@
     <ClInclude Include="Globals.h" />
     <ClInclude Include="MyVector2D.h" />
     <ClInclude Include="Objective.h" />
+    <ClInclude Include="PathPoint.h" />
     <ClInclude Include="Player.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

@@ -36,6 +36,10 @@ void GamePlay::update(sf::Time t_deltaTime)
 		m_enemys.at(i).update(t_deltaTime);
 		AI.seekOrFlee(m_enemys.at(i), m_player, test);
 	}
+	for (int i = 0; i < m_pathPoints.size(); i++)
+	{
+		m_pathPoints.at(i).update(t_deltaTime);
+	}
 }
 
 void GamePlay::render(sf::RenderWindow& t_window)
@@ -46,6 +50,10 @@ void GamePlay::render(sf::RenderWindow& t_window)
 	for (int i = 0; i < m_enemys.size(); i++)
 	{
 		m_enemys.at(i).render(t_window);
+	}
+	for (int i = 0; i < m_pathPoints.size(); i++)
+	{
+		m_pathPoints.at(i).render(t_window);
 	}
 }
 
@@ -59,6 +67,10 @@ void GamePlay::setup(sf::Font& t_font)
 	for (int i = 0; i < m_enemys.size(); i++)
 	{
 		m_enemys.at(i).setup(t_font);
+	}
+	for (int i = 0; i < m_pathPoints.size(); i++)
+	{
+		m_pathPoints.at(i).setup(t_font);
 	}
 
 

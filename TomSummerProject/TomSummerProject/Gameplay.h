@@ -6,6 +6,7 @@
 #include "Enemy.h"
 #include <array>
 #include "AIController.h"
+#include "PathPoint.h"
 
 class GamePlay
 {
@@ -24,6 +25,7 @@ private:
 	Player m_player;
 	Objective m_objective;
 	std::array<Enemy, 2> m_enemys;
+	std::array<PathPoint, 5> m_pathPoints;
 	AIController AI;
 
 
