@@ -2,6 +2,7 @@
 
 AIController::AIController()
 {
+
 }
 
 AIController::~AIController()
@@ -39,27 +40,17 @@ void AIController::seekOrFlee(Enemy & t_seeker, Player & t_target, bool t_seek)
 
 	}
 	//Unit vector
-	float magnitude = std::sqrt(relevantLocation.x * relevantLocation.x + relevantLocation.y * relevantLocation.y);
-	if (magnitude != 0)
-	{
-		relevantLocation.x = relevantLocation.x / magnitude;
-		relevantLocation.y = relevantLocation.y / magnitude;
-	}
-
-
+	relevantLocation = m_vectorMaths.unitVec(relevantLocation);
 
 	//Scale to Max Speed
 	relevantLocation = relevantLocation * t_seeker.getSpeed();
-
-
 
 	//Subtract velocity from desiered
 	sf::Vector2f steering = relevantLocation + t_seeker.getVel();
 
 	//Limit Max force
+	float magnitudeSteering = m_vectorMaths.magnitude(steering);
 
-	//float magnitudeSteering = std::sqrt(relevantLocation.x * relevantLocation.x + relevantLocation.y * relevantLocation.y);	//Magnitude Steering
-	float magnitudeSteering = std::sqrt(steering.x * steering.x + steering.y * steering.y);	//Magnitude Steering
 	if (magnitudeSteering > t_seeker.getMaxForce())
 	{
 		sf::Vector2f unitSteering = steering / magnitudeSteering;
@@ -74,4 +65,27 @@ void AIController::seekOrFlee(Enemy & t_seeker, Player & t_target, bool t_seek)
 
 	//Apply Steering
 	t_seeker.setVelocity(steering);
+}
+
+void AIController::pathFollowing(Enemy& t_Follower, PathPoint& t_pathPoint)
+{
+	//Check future location
+	sf::Vector2f futureLocation;
+	sf::Vector2f currentVel = t_Follower.getVel() ;
+
+	futureLocation.x = currentVel.x * m_PREDICTED_LENGTH;
+	futureLocation.y = currentVel.y * m_PREDICTED_LENGTH;
+
+	futureLocation = futureLocation + t_Follower.getPos();
+
+	//Check for collision on path
+
+
+	//Find the closest point on the path (The normal)
+
+	//Set target to further down the path
+
+	//seek Target
+
+
 }

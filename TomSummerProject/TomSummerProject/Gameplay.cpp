@@ -24,7 +24,6 @@ void GamePlay::update(sf::Time t_deltaTime)
 			test = true;
 			std::cout << test << std::endl;
 		}
-		
 	}
 
 
@@ -34,7 +33,10 @@ void GamePlay::update(sf::Time t_deltaTime)
 	for (int i = 0; i < m_enemys.size(); i++)
 	{
 		m_enemys.at(i).update(t_deltaTime);
+		
 		AI.seekOrFlee(m_enemys.at(i), m_player, test);
+
+		//AI.pathFollowing(m_enemys.at(i), m_pathPoints.at(0));
 	}
 	for (int i = 0; i < m_pathPoints.size(); i++)
 	{

@@ -28,6 +28,7 @@
     <ClCompile Include="Objective.cpp" />
     <ClCompile Include="PathPoint.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="VectorMaths.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AIController.h" />
@@ -39,6 +40,7 @@
     <ClInclude Include="Objective.h" />
     <ClInclude Include="PathPoint.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="VectorMaths.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

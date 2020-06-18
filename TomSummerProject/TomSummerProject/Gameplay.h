@@ -25,7 +25,7 @@ private:
 	Player m_player;
 	Objective m_objective;
 	std::array<Enemy, 2> m_enemys;
-	std::array<PathPoint, 5> m_pathPoints;
+	std::array<PathPoint, 2> m_pathPoints;
 	AIController AI;
 
 
