@@ -7,6 +7,8 @@
 #include <array>
 #include "AIController.h"
 #include "PathPoint.h"
+#include "VectorMaths.h"
+#include "Map.h"
 
 class GamePlay
 {
@@ -25,9 +27,10 @@ private:
 	Player m_player;
 	Objective m_objective;
 	std::array<Enemy, 2> m_enemys;
-	std::array<PathPoint, 2> m_pathPoints;
+	//std::array<PathPoint, 2> m_pathPoints;
 	AIController AI;
-
-
 	bool test = true;
+	Map m_map;
+
+	VectorMaths VM;
 };

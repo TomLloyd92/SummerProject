@@ -13,6 +13,7 @@ Game::Game() : m_window{ sf::VideoMode{ SCREEN_WIDTH, SCREEN_HEIGHT, 32 }, "Toms
 
 Game::~Game()
 {
+	srand(time(NULL));
 }
 
 void Game::run()

@@ -9,7 +9,7 @@ public:
 	~PathPoint();
 	void update(sf::Time t_deltaTime);
 	void render(sf::RenderWindow& t_window);
-	void setup(sf::Font& t_font);
+	void setup();
 	void initialise();
 
 	//Gets

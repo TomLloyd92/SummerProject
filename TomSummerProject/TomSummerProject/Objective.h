@@ -12,6 +12,9 @@ public:
 	void setup(sf::Font& t_font);
 	void initialise();
 
+	//Gets
+	sf::Vector2f getPos() { return m_pos; };
+
 private:
 	//Test Circle
 	sf::CircleShape m_objectiveCircle;

@@ -79,7 +79,7 @@ void AIController::pathFollowing(Enemy& t_Follower, PathPoint& t_pathPoint)
 	futureLocation = futureLocation + t_Follower.getPos();
 
 	//Check for collision on path
-
+	//float angleBetween = m_vectorMaths.angleBetween()
 
 	//Find the closest point on the path (The normal)
 
