@@ -21,6 +21,6 @@ private:
 
 	std::vector<PathConnector> m_connector;
 	std::vector<PathPoint> m_point;
-	int m_amountOfNodes = 20;
+	int m_amountOfNodes = 5;
 
 };

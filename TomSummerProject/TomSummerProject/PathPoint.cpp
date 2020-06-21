@@ -26,8 +26,6 @@ void PathPoint::setup()
 
 void PathPoint::initialise()
 {
-
-
 	m_pos.x = rand() % SCREEN_WIDTH + 1.0f;
 	m_pos.y = rand() % SCREEN_HEIGHT + 1.0f;
 	m_pathPointCircle.setFillColor(sf::Color(255, 255, 125));

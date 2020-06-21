@@ -14,6 +14,7 @@ public:
 
 	//Gets
 	float getRadius() { return m_raduius; };
+	sf::Vector2f getPos() { return m_pos; };
 
 private:
 	//Test Circle

@@ -83,7 +83,7 @@ void GamePlay::setup(sf::Font& t_font)
 		m_enemys.at(i).setup(t_font);
 	}
 
-	m_map.setup(10);
+	m_map.setup(5);
 	/*
 	for (int i = 0; i < m_pathPoints.size(); i++)
 	{
