@@ -36,9 +36,12 @@ void PathConnector::m_appendVertex()
 {
 	m_startPointVertex.position.x = m_startPoint.x + m_radius;
 	m_startPointVertex.position.y = m_startPoint.y + m_radius;
+	
 	m_endPointVertex.position.x = m_endPoint.x + m_radius;
 	m_endPointVertex.position.y = m_endPoint.y + m_radius;
 
 	m_connector.append(m_startPointVertex);
 	m_connector.append(m_endPointVertex);
+
+	
 }

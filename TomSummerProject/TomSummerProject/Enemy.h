@@ -39,7 +39,7 @@ private:
 	void m_movement();
 	sf::Vector2f m_steering;
 	float m_MAX_SPEED =	.5;
-	float m_speed = 0.1;
+	float m_speed = 0.01;
 	float m_MAX_FORCE = 10;
 	const static int m_ROTATION_OFFSET = 90;
 	

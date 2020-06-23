@@ -13,6 +13,9 @@ public:
 	void render(sf::RenderWindow& t_window);
 	void setup(int t_amountOfNodes);
 
+	//Gets
+	std::vector<PathConnector> getPathConnectors() { return m_connector; };
+	std::vector<PathPoint> m_pointgetPathPoints() { return m_point; };
 
 private:
 	void m_generateMap(int t_amountOfNodes);
@@ -21,6 +24,6 @@ private:
 
 	std::vector<PathConnector> m_connector;
 	std::vector<PathPoint> m_point;
-	int m_amountOfNodes = 5;
+	int m_amountOfNodes;
 
 };

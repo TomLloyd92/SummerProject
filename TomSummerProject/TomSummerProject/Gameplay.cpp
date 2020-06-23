@@ -31,23 +31,18 @@ void GamePlay::update(sf::Time t_deltaTime)
 	//Update Objects
 	m_player.update(t_deltaTime);
 	m_objective.update(t_deltaTime);
+
+	sf::Vector2f playerPos = m_player.getPos();
 	for (int i = 0; i < m_enemys.size(); i++)
 	{
 		m_enemys.at(i).update(t_deltaTime);
 		
-		AI.seekOrFlee(m_enemys.at(i), m_player, test);
+		//AI.seekOrFlee(m_enemys.at(i), playerPos, test);
 
 		m_map.update(t_deltaTime);
 
-		//AI.pathFollowing(m_enemys.at(i), m_pathPoints.at(0));
+		AI.pathFollowing(m_enemys.at(0), m_map);
 	}
-	/*
-	for (int i = 0; i < m_pathPoints.size(); i++)
-	{
-		m_pathPoints.at(i).update(t_deltaTime);
-	}
-	*/
-
 
 	//std::cout << VM.angleBetween(m_player.getPos(), m_objective.getPos()) << std::endl;
 }
@@ -62,13 +57,6 @@ void GamePlay::render(sf::RenderWindow& t_window)
 		m_enemys.at(i).render(t_window);
 	}
 	m_map.render(t_window);
-
-	/*
-	for (int i = 0; i < m_pathPoints.size(); i++)
-	{
-		m_pathPoints.at(i).render(t_window);
-	}
-	*/
 }
 
 void GamePlay::setup(sf::Font& t_font)
@@ -83,15 +71,7 @@ void GamePlay::setup(sf::Font& t_font)
 		m_enemys.at(i).setup(t_font);
 	}
 
-	m_map.setup(5);
-	/*
-	for (int i = 0; i < m_pathPoints.size(); i++)
-	{
-		m_pathPoints.at(i).setup(t_font);
-	}
-	*/
-
-
+	m_map.setup(2);
 }
 
 void GamePlay::initialise()

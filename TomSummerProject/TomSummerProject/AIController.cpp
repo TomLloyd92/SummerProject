@@ -25,18 +25,18 @@ void AIController::initialise()
 {
 }
 
-void AIController::seekOrFlee(Enemy & t_seeker, Player & t_target, bool t_seek)
+void AIController::seekOrFlee(Enemy & t_seeker, sf::Vector2f t_target, bool t_seek)
 {
 	sf::Vector2f relevantLocation;
 	if (t_seek == true)
 	{
 		//Vector Relative to target from seeker
-		 relevantLocation = t_target.getPos() - t_seeker.getPos();
+		 relevantLocation = t_target - t_seeker.getPos();
 	}
 	else if(t_seek == false)
 	{
 		//FLEE
-		relevantLocation =  t_seeker.getPos() - t_target.getPos();
+		relevantLocation =  t_seeker.getPos() - t_target;
 
 	}
 	//Unit vector
@@ -67,25 +67,25 @@ void AIController::seekOrFlee(Enemy & t_seeker, Player & t_target, bool t_seek)
 	t_seeker.setVelocity(steering);
 }
 
-void AIController::pathFollowing(Enemy& t_Follower, PathPoint& t_pathPoint)
+void AIController::pathFollowing(Enemy& t_follower, Map & t_map)
 {
 	//Check future location
 	sf::Vector2f futureLocation;
-	sf::Vector2f currentVel = t_Follower.getVel() ;
+	sf::Vector2f currentVel = t_follower.getVel() ;
 
 	futureLocation.x = currentVel.x * m_PREDICTED_LENGTH;
 	futureLocation.y = currentVel.y * m_PREDICTED_LENGTH;
-
-	futureLocation = futureLocation + t_Follower.getPos();
+	futureLocation = futureLocation + t_follower.getPos();
 
 	//Check for collision on path
-	//float angleBetween = m_vectorMaths.angleBetween()
+	sf::Vector2f relativePointVector = t_map.m_pointgetPathPoints().at(1).getPos()  - t_map.m_pointgetPathPoints().at(0).getPos();
+	sf::Vector2f relativeFollowerVector = futureLocation - t_map.m_pointgetPathPoints().at(0).getPos();
 
-	//Find the closest point on the path (The normal)
+	float angleBetween = m_vectorMaths.angleBetween(relativeFollowerVector, relativePointVector);
 
-	//Set target to further down the path
+	sf::Vector2f target = m_vectorMaths.scalerProduct(relativeFollowerVector, relativePointVector, angleBetween) + t_map.m_pointgetPathPoints().at(0).getPos();
 
-	//seek Target
+	seekOrFlee(t_follower, target, true);
 
 
 }
