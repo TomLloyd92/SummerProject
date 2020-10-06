@@ -24,9 +24,13 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Gameplay.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Map.cpp" />
     <ClCompile Include="MyVector2D.cpp" />
     <ClCompile Include="Objective.cpp" />
+    <ClCompile Include="PathConnector.cpp" />
+    <ClCompile Include="PathPoint.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="VectorMaths.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AIController.h" />
@@ -34,9 +38,13 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="Gameplay.h" />
     <ClInclude Include="Globals.h" />
+    <ClInclude Include="Map.h" />
     <ClInclude Include="MyVector2D.h" />
     <ClInclude Include="Objective.h" />
+    <ClInclude Include="PathConnector.h" />
+    <ClInclude Include="PathPoint.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="VectorMaths.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -2,6 +2,7 @@
 
 AIController::AIController()
 {
+
 }
 
 AIController::~AIController()
@@ -24,42 +25,32 @@ void AIController::initialise()
 {
 }
 
-void AIController::seekOrFlee(Enemy & t_seeker, Player & t_target, bool t_seek)
+void AIController::seekOrFlee(Enemy & t_seeker, sf::Vector2f t_target, bool t_seek)
 {
 	sf::Vector2f relevantLocation;
 	if (t_seek == true)
 	{
 		//Vector Relative to target from seeker
-		 relevantLocation = t_target.getPos() - t_seeker.getPos();
+		 relevantLocation = t_target - t_seeker.getPos();
 	}
 	else if(t_seek == false)
 	{
 		//FLEE
-		relevantLocation =  t_seeker.getPos() - t_target.getPos();
+		relevantLocation =  t_seeker.getPos() - t_target;
 
 	}
 	//Unit vector
-	float magnitude = std::sqrt(relevantLocation.x * relevantLocation.x + relevantLocation.y * relevantLocation.y);
-	if (magnitude != 0)
-	{
-		relevantLocation.x = relevantLocation.x / magnitude;
-		relevantLocation.y = relevantLocation.y / magnitude;
-	}
-
-
+	relevantLocation = m_vectorMaths.unitVec(relevantLocation);
 
 	//Scale to Max Speed
 	relevantLocation = relevantLocation * t_seeker.getSpeed();
-
-
 
 	//Subtract velocity from desiered
 	sf::Vector2f steering = relevantLocation + t_seeker.getVel();
 
 	//Limit Max force
+	float magnitudeSteering = m_vectorMaths.magnitude(steering);
 
-	//float magnitudeSteering = std::sqrt(relevantLocation.x * relevantLocation.x + relevantLocation.y * relevantLocation.y);	//Magnitude Steering
-	float magnitudeSteering = std::sqrt(steering.x * steering.x + steering.y * steering.y);	//Magnitude Steering
 	if (magnitudeSteering > t_seeker.getMaxForce())
 	{
 		sf::Vector2f unitSteering = steering / magnitudeSteering;
@@ -74,4 +65,27 @@ void AIController::seekOrFlee(Enemy & t_seeker, Player & t_target, bool t_seek)
 
 	//Apply Steering
 	t_seeker.setVelocity(steering);
+}
+
+void AIController::pathFollowing(Enemy& t_follower, Map & t_map)
+{
+	//Check future location
+	sf::Vector2f futureLocation;
+	sf::Vector2f currentVel = t_follower.getVel() ;
+
+	futureLocation.x = currentVel.x * m_PREDICTED_LENGTH;
+	futureLocation.y = currentVel.y * m_PREDICTED_LENGTH;
+	futureLocation = futureLocation + t_follower.getPos();
+
+	//Check for collision on path
+	sf::Vector2f relativePointVector = t_map.m_pointgetPathPoints().at(1).getPos()  - t_map.m_pointgetPathPoints().at(0).getPos();
+	sf::Vector2f relativeFollowerVector = futureLocation - t_map.m_pointgetPathPoints().at(0).getPos();
+
+	float angleBetween = m_vectorMaths.angleBetween(relativeFollowerVector, relativePointVector);
+
+	sf::Vector2f target = m_vectorMaths.scalerProduct(relativeFollowerVector, relativePointVector, angleBetween) + t_map.m_pointgetPathPoints().at(0).getPos();
+
+	seekOrFlee(t_follower, target, true);
+
+
 }
