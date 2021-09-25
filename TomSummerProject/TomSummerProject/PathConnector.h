@@ -14,7 +14,7 @@ public:
 	void initialise();
 	
 	//Sets
-	void setConnector(sf::Vector2f t_startPoint, sf::Vector2f t_endPoint, float t_radius);
+	void setConnector(sf::Vector2f t_startPoint, sf::Vector2f t_endPoint, float t_radiusStart, float t_radiusEnd);
 
 private:
 	sf::VertexArray m_connector{ sf::Lines };
@@ -24,7 +24,9 @@ private:
 	sf::Vector2f m_startPoint;
 	sf::Vector2f m_endPoint;
 
-	float m_radius;
+	float m_radiusStart;
+	float m_radiusEnd;
+
 
 	void m_appendVertex();
 

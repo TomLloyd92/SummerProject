@@ -2,6 +2,8 @@
 
 PathPoint::PathPoint()
 {
+	m_radius = rand() % 30;
+	m_col = sf::Color(rand() % 255, rand() % 255, rand() % 255);
 
 }
 
@@ -28,7 +30,7 @@ void PathPoint::initialise()
 {
 	m_pos.x = rand() % SCREEN_WIDTH + 1.0f;
 	m_pos.y = rand() % SCREEN_HEIGHT + 1.0f;
-	m_pathPointCircle.setFillColor(sf::Color(255, 255, 125));
-	m_pathPointCircle.setRadius(m_raduius);
+	m_pathPointCircle.setFillColor(m_col);
+	m_pathPointCircle.setRadius(m_radius);
 	m_pathPointCircle.setPosition(m_pos);
 }

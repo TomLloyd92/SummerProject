@@ -3,14 +3,16 @@
 
 Map::Map()
 {
+	m_amountOfNodes = rand() % 50;
 }
 
 
 void Map::m_generateMap(int t_amountOfNodes)
 {
-	m_amountOfNodes = t_amountOfNodes;
+
 	m_generatePathPoint();
-	m_generatePathConnector();
+	//m_generatePathConnector();
+	m_generatePathConnectorCentralized();
 }
 
 void Map::update(sf::Time t_deltaTime)
@@ -55,23 +57,50 @@ void Map::m_generatePathPoint()
 
 void Map::m_generatePathConnector()
 {
-	float radius = m_point.at(0).getRadius();
+	//float radius = m_point.at(0).getRadius();
 
 	for (int i = 0; i < m_amountOfNodes; i++)
 	{
 		PathConnector pathConnector;
-		pathConnector.setup();
 
+		 float radius = m_point.at(i).getRadius();
 		if (i == m_amountOfNodes - 1)
 		{
-			pathConnector.setConnector(m_point.at(i).getPos(), m_point.at(0).getPos(), radius);
+			pathConnector.setConnector(m_point.at(i).getPos(), m_point.at(0).getPos(), m_point.at(i).getRadius(), m_point.at(0).getRadius());
 		}
 		else
 		{
-			pathConnector.setConnector(m_point.at(i).getPos(), m_point.at(i + 1).getPos(), radius);
+			pathConnector.setConnector(m_point.at(i).getPos(), m_point.at(i + 1).getPos(), m_point.at(i).getRadius(), m_point.at(i + 1).getRadius());
 			//pathConnector.setRadius(radius);
 		}
 		
+		pathConnector.setup();
+
+		m_connector.push_back(pathConnector);
+	}
+}
+
+void Map::m_generatePathConnectorCentralized()
+{
+
+	for (int i = 0; i < m_amountOfNodes; i++)
+	{
+		PathConnector pathConnector;
+
+
+		//float radius = m_point.at(i).getRadius();
+
+
+		if (i == m_amountOfNodes - 1)
+		{
+			pathConnector.setConnector(m_point.at(i).getPos(), m_point.at(0).getPos(), m_point.at(0).getRadius(), m_point.at(0).getRadius());
+		}
+		else
+		{
+			pathConnector.setConnector(m_point.at(i).getPos(), m_point.at(0).getPos(), m_point.at(i).getRadius(), m_point.at(0).getRadius());
+			//pathConnector.setRadius(radius);
+		}
+
 		pathConnector.setup();
 
 		m_connector.push_back(pathConnector);

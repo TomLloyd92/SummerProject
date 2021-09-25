@@ -13,7 +13,7 @@ public:
 	void initialise();
 
 	//Gets
-	float getRadius() { return m_raduius; };
+	float getRadius() { return m_radius; };
 	sf::Vector2f getPos() { return m_pos; };
 
 private:
@@ -21,5 +21,6 @@ private:
 	sf::CircleShape m_pathPointCircle;
 	sf::Vector2f m_pos;
 	sf::Vector2f m_vel;
-	float m_raduius = 20;
+	sf::Color m_col;
+	float m_radius;
 };

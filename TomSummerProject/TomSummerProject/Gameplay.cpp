@@ -12,37 +12,37 @@ GamePlay::~GamePlay()
 void GamePlay::update(sf::Time t_deltaTime)
 {
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Y))
-	{
-		if (test == true)
-		{
-			test = false;
-			std::cout << test << std::endl;
-		}
-		
-		else if (test == false)
-		{
-			test = true;
-			std::cout << test << std::endl;
-		}
-	}
+	//if (sf::Keyboard::isKeyPressed(sf::Keyboard::Y))
+	//{
+	//	if (test == true)
+	//	{
+	//		test = false;
+	//		std::cout << test << std::endl;
+	//	}
+	//	
+	//	else if (test == false)
+	//	{
+	//		test = true;
+	//		std::cout << test << std::endl;
+	//	}
+	//}
 
 
 	//Update Objects
-	m_player.update(t_deltaTime);
-	m_objective.update(t_deltaTime);
+	//m_player.update(t_deltaTime);
+	//m_objective.update(t_deltaTime);
 
-	sf::Vector2f playerPos = m_player.getPos();
-	for (int i = 0; i < m_enemys.size(); i++)
-	{
-		m_enemys.at(i).update(t_deltaTime);
-		
-		//AI.seekOrFlee(m_enemys.at(i), playerPos, test);
+	//sf::Vector2f playerPos = m_player.getPos();
+	//for (int i = 0; i < m_enemys.size(); i++)
+	//{
+	//	m_enemys.at(i).update(t_deltaTime);
+	//	
+	//	//AI.seekOrFlee(m_enemys.at(i), playerPos, test);
 
-		m_map.update(t_deltaTime);
+	//	m_map.update(t_deltaTime);
 
-		AI.pathFollowing(m_enemys.at(0), m_map);
-	}
+	//	AI.pathFollowing(m_enemys.at(0), m_map);
+	//}
 
 	//std::cout << VM.angleBetween(m_player.getPos(), m_objective.getPos()) << std::endl;
 }
@@ -50,12 +50,12 @@ void GamePlay::update(sf::Time t_deltaTime)
 void GamePlay::render(sf::RenderWindow& t_window)
 {
 	//Render Objects
-	m_player.render(t_window);
-	m_objective.render(t_window);
-	for (int i = 0; i < m_enemys.size(); i++)
-	{
-		m_enemys.at(i).render(t_window);
-	}
+	//m_player.render(t_window);
+	//m_objective.render(t_window);
+	//for (int i = 0; i < m_enemys.size(); i++)
+	//{
+	//	m_enemys.at(i).render(t_window);
+	//}
 	m_map.render(t_window);
 }
 

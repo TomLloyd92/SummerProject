@@ -21,6 +21,7 @@ private:
 	void m_generateMap(int t_amountOfNodes);
 	void m_generatePathPoint();
 	void m_generatePathConnector();
+	void m_generatePathConnectorCentralized();
 
 	std::vector<PathConnector> m_connector;
 	std::vector<PathPoint> m_point;
